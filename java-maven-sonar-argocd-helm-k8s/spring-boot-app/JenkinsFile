@@ -59,6 +59,7 @@ stage('Update Deployment File') {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
+                    set +e
                     git config user.email "vasu.k.sri@gmail.com"
                     git config user.name "Srinivas Kavuri"
                     BUILD_NUMBER=${BUILD_NUMBER}
